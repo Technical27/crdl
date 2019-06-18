@@ -34,7 +34,6 @@ class CRDL extends EventEmitter {
         this.ffmpeg.addOption('-c:s mov_text');
       }
       else this.ffmpeg.addOption('-c copy');
-      this.ffmpeg.on('start', cmd => console.log(cmd));
       this.ffmpeg.on('end', () => {
         shell.rm('-r', `${this.tmp}/crdl/${this.i}`);
         this.emit('end');
